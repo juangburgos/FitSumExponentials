@@ -1,55 +1,26 @@
 # Fit Sum of Exponentials
 
-Repo to license code for fitting a sum of exponentials as described in:
+The [files](./docs/files) directory contains a collection of **Python** scripts that implement the method proposed in this [stackexchange answer](https://math.stackexchange.com/questions/1428566/fit-sum-of-exponentials/3808325#3808325) to fit data to a sum of exponentials with an arbitrary number of exponential terms.
 
-https://math.stackexchange.com/questions/1428566/fit-sum-of-exponentials/3808325#3808325
+This repo also contains a static [jupyterlite](https://jupyterlite.readthedocs.io) website with a custom [pyodide](https://pyodide.org) kernel and the [PyArma](https://pyarma.sourceforge.io) Python module compiled for [webassembly](https://webassembly.org).
 
-It applies for `n` exponentials and variations as described in the link above. 
+The website available at [**juangburgos.github.io/FitSumExponentials**](http://juangburgos.github.io/FitSumExponentials) allows to run the Python scripts in an _interactive_ Python environment that requires zero installation and no backend server, and it runs in almost all modern web browsers and devices.
 
-For example, a 4 exponential fit:
+Kudos to the _jupyterlite_, _pyodide_ and _PyArma_ guys for making this possible.
 
-```matlab
-clear all;
-clc;
-% get data
-dx = 0.02;
-x  = (dx:dx:1.5)';
-y  =  5*exp(0.5*x) + 4*exp(-3*x) + 2*exp(-2*x) - 3*exp(0.15*x);
+## Old Matlab Code
 
-% calculate integrals
-iy1 = cumtrapz(x, y);
-iy2 = cumtrapz(x, iy1);
-iy3 = cumtrapz(x, iy2);
-iy4 = cumtrapz(x, iy3);
+Before using Python and PyArma for exponentials the fit method implementation, there was a Matlab version, which was was available in an interactive online environment provided by [OctaveOnline](https://octave-online.net). Sadly, OctaveOnline decided to delete all my saved and shared scripts without any notification, which motivated me to create this static wbesite.
 
-% get exponentials lambdas
-Y = [iy1, iy2, iy3, iy4, x.^3, x.^2, x, ones(size(x))];
-A = pinv(Y)*y;
-
-lambdas = eig([A(1), A(2), A(3), A(4); 1, 0, 0, 0; 0, 1, 0, 0; 0, 0, 1, 0]);
-lambdas
-%lambdas =
-%  -2.9991
-%  -1.9997
-%   0.5000
-%   0.1500
-
-% get exponentials multipliers
-X = [exp(lambdas(1)*x), exp(lambdas(2)*x), exp(lambdas(3)*x), exp(lambdas(4)*x)];
-P = pinv(X)*y;
-P
-%P =
-%   4.0042
-%   1.9955
-%   4.9998
-%  -2.9996
-```
+The old Matlab scripts can be accessed in the [matlab](./matlab) directory.
 
 ---
 
 # License
 
 MIT license.
+
+Only for the files in the [files](./docs/files) and [matlab](./matlab) directories, the rest of the site files have licenses that belong to their own projects (_jupyterlite_, _pyodide_ and _PyArma_).
 
 Copyright (c) 2020 - forever Juan Gonzalez Burgos
 

@@ -1,0 +1,299 @@
+Metadata-Version: 2.1
+Name: pyarma
+Version: 0.500.3
+Summary: Linear algebra library for Python, with emphasis on ease of use
+Home-page: https://pyarma.sourceforge.io
+Author: Jason Rumengan
+Author-email: jason.rumengan@connect.qut.edu.au
+Project-URL: Documentation, https://pyarma.sourceforge.io/docs.html
+Project-URL: Source, https://gitlab.com/jason-rumengan/pyarma
+Project-URL: Tracker, https://gitlab.com/jason-rumengan/pyarma/issues
+Keywords: linear algebra scientific computing pyarma pyarmadillo armadillo arma c++ pybind11 library
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: NOTICE
+
+### PyArmadillo: linear algebra library for Python
+https://pyarma.sourceforge.io
+
+Copyright 2020-2021 Jason Rumengan   (https://www.jasonrumengan.my.id)  
+Copyright 2020-2021 Terry Yue Zhuo   (https://terryyz.github.io)  
+Copyright 2020-2021 Conrad Sanderson (https://conradsanderson.id.au)  
+Copyright 2020-2021 Data61 / CSIRO  
+
+[![PyPI version](https://badge.fury.io/py/pyarma.svg)](https://badge.fury.io/py/pyarma)
+[![status](https://joss.theoj.org/papers/9e0ec1df49e009869b5a308f6d319c71/status.svg)](https://joss.theoj.org/papers/9e0ec1df49e009869b5a308f6d319c71)
+[![Build status](https://ci.appveyor.com/api/projects/status/8hl857p0vwuilnwh?svg=true)](https://ci.appveyor.com/project/jason-rumengan/pyarma)
+---
+
+### Quick Links  
+
+- [download latest release](https://pyarma.sourceforge.io)
+- [documentation for functions and classes](https://pyarma.sourceforge.io/docs.html)
+- [bug reports & questions](https://pyarma.sourceforge.io/faq.html)  
+
+---
+
+### Contents
+
+1. [Introduction](#1-introduction)
+2. [Citation Details](#2-citation-details)
+3. [Documentation and Examples](#3-documentation-and-examples)
+
+4. [Installation via pip](#4-installation-via-pip)
+5. [Installation from Source](#5-installation-from-source)
+
+6. [Distribution License](#6-distribution-license)
+7. [Bug Reports and Frequently Asked Questions](#7-bug-reports-and-frequently-asked-questions)
+
+---
+
+### 1. Introduction
+
+* PyArmadillo is a streamlined linear algebra library (matrix maths) for the Python language, with emphasis on ease of use
+
+* Provides high-level syntax and functionality deliberately similar to Matlab
+
+* Provides classes for matrices and cubes; integer, floating point and complex elements are supported 
+
+* Relies on [Armadillo](http://arma.sourceforge.net) for the underlying C++ implementation of matrix objects
+
+* Authors:
+    * Jason Rumengan   - https://www.jasonrumengan.my.id
+    * Terry Yue Zhuo   - https://terryyz.github.io
+    * Conrad Sanderson - http://conradsanderson.id.au
+
+* Example program:    
+    ```python
+    from pyarma import *
+
+    A = mat(4, 5, fill.ones)
+    B = mat(4, 5, fill.randu)
+    
+    C = A*B.t()
+    
+    C.print("C:")
+    ```
+---
+
+### 2: Citation Details
+
+Please cite the following paper if you use PyArmadillo in your research and/or software.  
+Citations are useful for the continued development and maintenance of the library.
+
+  * Jason Rumengan, Terry Yue Zhuo, Conrad Sanderson.  
+    PyArmadillo: a streamlined linear algebra library for Python.  
+    Journal of Open Source Software, Vol. 6(66), p. 3051, 2021.  
+    [https://doi.org/10.21105/joss.03051](https://doi.org/10.21105/joss.03051)
+
+---
+
+### 3: Documentation and Examples
+
+The documentation for PyArmadillo functions and classes is available at:  
+https://pyarma.sourceforge.io/docs.html
+
+The documentation is also in the `doc/docs.html` file in the PyArmadillo archive,
+which can be viewed with a web browser.
+
+A short example program named ```example.py``` that uses PyArmadillo
+is included with the PyArmadillo archive.
+
+---
+
+### 4: Installation via pip
+
+* A precompiled version of PyArmadillo is available via the Python Package Index (PyPI)
+
+* Use the following command for installation:  
+  `pip3 install --user pyarma`  
+  or  
+  `pip3 install pyarma`  
+
+* If `pip3` cannot be found, try using the following alternatives:
+  - `python3 -m pip`
+  - `py -m pip`
+
+* To upgrade PyArmadillo via pip:  
+  `pip3 install --upgrade --user pyarma`  
+  or  
+  `pip3 install --upgrade pyarma`  
+  
+  **NOTE:** It's possible that pip may erroneously not find the newest version.
+  In that case, try the following command:  
+  `pip3 install --no-cache-dir --upgrade --user pyarma`  
+  or  
+  `pip3 install --no-cache-dir --upgrade pyarma`  
+  
+  
+
+* More info on the pyarma package at PyPI:  
+  https://pypi.org/project/pyarma/
+
+
+---
+
+### 5: Installation from Source
+
+* **Preliminaries**
+  
+  - Installing PyArmadillo from source requires:
+    - at least Python 3.6; the minimum recommended version is Python 3.8
+    - a C++ compiler that supports at least the C++11 standard
+    - at least 8 GB of RAM
+    - 64-bit CPU, preferably with 4+ cores
+    - OpenBLAS and LAPACK (or compatible implementations)
+  
+  - **Linux** based operating systems (eg. Fedora, Ubuntu, CentOS, Red Hat, Debian, etc)
+    - First install OpenBLAS, LAPACK, Python 3, and pip3, along with the corresponding development/header files
+    - On CentOS 8 / RHEL 8, the CentOS PowerTools repository may need to be enabled:  
+      `dnf config-manager --set-enabled powertools`
+    - Recommended packages to install before installing PyArmadillo:
+      - Fedora, CentOS, RHEL: gcc-c++, libstdc++-devel, openblas-devel, lapack-devel, python3-devel, python3-pip
+      - Ubuntu and Debian: g++, libopenblas-dev, liblapack-dev, python3-dev, python3-pip
+    - `pip3` needs to be updated:  
+      `pip3 install --user --upgrade pip`
+  
+  - **macOS**
+    - First install Xcode (version 8 or later) and then type the following command in a terminal window:  
+      `xcode-select --install`
+    - Xcode command-line tools include the Python 3 development files, but `pip3` needs to be updated:  
+      `pip3 install --user --upgrade pip`
+    - The "Accelerate" framework is used for accessing BLAS and LAPACK functions
+
+  - **Windows (x64)**
+    - First install Microsoft Visual Studio (2019 or later)
+    - Use the x64 Native Tools Command Prompt
+    - PyArmadillo contains pre-compiled [OpenBLAS](https://github.com/xianyi/OpenBLAS/releases/),
+      which is used for accessing BLAS and LAPACK functions
+    - `pip3` needs to be updated:  
+      `py -m pip install --user --upgrade pip`
+    - Alternative implementations and/or distributions of BLAS and LAPACK are available at:
+      - http://software.intel.com/en-us/intel-mkl/
+      - http://icl.cs.utk.edu/lapack-for-windows/lapack/
+      - http://ylzhao.blogspot.com.au/2013/10/blas-lapack-precompiled-binaries-for.html
+    - **Caveat**: 32-bit Windows (x86) is currently not supported
+
+* **Running the Installer**
+  
+  - Open a terminal window and change into the directory containing PyArmadillo sources
+    - if the source was obtained as a package downloaded from SourceForge:
+      
+          tar xf pyarmadillo-0.123.4.tar.xz
+          cd pyarmadillo-0.123.4
+        
+      (change `0.123.4` to match the downloaded version)
+    
+    - if the source was obtained by cloning the GitLab repo:
+      
+          git clone https://gitlab.com/jason-rumengan/pyarma/
+          cd pyarma
+        
+  - Execute the following command:
+  
+        pip3 install --user .
+  
+    **NOTE:** the full stop character at the end is important
+  
+  - To see the progress of installation, change the above command to `pip3 install --verbose --user .`
+  
+  - If `pip3` cannot be found, try using the following alternatives:
+    - `python3 -m pip`
+    - `py -m pip`
+  
+  - Installation may take **5 to 20 minutes** due to compiling C++ sources that extensively use template metaprogramming;
+    the time taken depends on the number of CPU cores and the amount of available memory
+  
+  - **Caveat:** on systems with low memory (&lt; 8 GB), parallel compilation may fail
+    due to template metaprogramming requiring large amounts of memory.
+    To avoid parallel compilation, first install `scikit-build` using `pip3 install --user scikit-build`
+    and then install PyArmadillo using `python setup.py install -- -- -j1`
+    
+  - Link-time optimisation (LTO) is off by default.
+    LTO reduces the size of PyArmadillo at the expense of considerably longer compilation time.
+    To enable LTO, first install `scikit-build` and `ninja`,
+    and then enable the `PYARMA_LTO` option during installation:
+    ```
+    pip3 install --user scikit-build ninja
+    python3 setup.py install -DPYARMA_LTO=ON
+    ```
+
+* **Support for Intel MKL and Other BLAS/LAPACK Implementations**
+
+  - PyArmadillo can optionally use the Intel Math Kernel Library (MKL) as high-speed replacement for standard BLAS and LAPACK
+  
+  - Intel MKL should be automatically detected during installation from source
+  
+  - For other BLAS/LAPACK implementations, minor modifications to the built-in Armadillo sources may be required.
+    Specifically `ext/armadillo/include/armadillo_bits/config.hpp` may need to be edited
+    to ensure Armadillo uses the same integer sizes and style of function names as used by the replacement libraries.
+    The following defines may need to be enabled or disabled:
+    
+        ARMA_BLAS_CAPITALS  
+        ARMA_BLAS_UNDERSCORE  
+        ARMA_BLAS_LONG  
+        ARMA_BLAS_LONG_LONG  
+    
+    See the [Armadillo](http://arma.sourceforge.net) site for more information:
+      - http://arma.sourceforge.net/faq.html
+      - http://arma.sourceforge.net/docs.html#config_hpp
+  
+  - On Linux-based systems, MKL might be installed in a non-standard location such as `/opt` which can cause problems during linking.
+    Before installing PyArmadillo, the system should know where the MKL libraries are located.
+    For example, `/opt/intel/mkl/lib/intel64/`.
+    This can be achieved by setting the `LD_LIBRARY_PATH` environment variable,
+    or for a more permanent solution, adding the directory locations to `/etc/ld.so.conf`.
+    It may also be possible to store a text file with the locations in the `/etc/ld.so.conf.d` directory.
+    For example, `/etc/ld.so.conf.d/mkl.conf`.
+    If `/etc/ld.so.conf` is modified or `/etc/ld.so.conf.d/mkl.conf` is created,
+    `/sbin/ldconfig` must be run afterwards.  
+    Below is an example of `/etc/ld.so.conf.d/mkl.conf` where Intel MKL is installed in `/opt/intel`
+
+          /opt/intel/lib/intel64  
+          /opt/intel/mkl/lib/intel64  
+
+  - If MKL is installed and it is persistently giving problems during linking,
+    support for MKL can be disabled by editing `ext/armadillo/CMakeLists.txt`
+    and commenting out the line containing `INCLUDE(ARMA_FindMKL)`,
+    then deleting `ext/armadillo/CMakeCache.txt`,
+    and finally re-running PyArmadillo installation.
+
+---
+
+### 6: Distribution License
+
+PyArmadillo is open source software licensed under the Apache License, Version 2.0 (the "License").
+A copy of the License is included in the "LICENSE" file.
+
+Any software that incorporates or distributes PyArmadillo in source or binary form
+must include, in the documentation and/or other materials provided with the software,
+a readable copy of the attribution notices present in the "NOTICE" file.
+See the License for details. The contents of the "NOTICE" file are for
+informational purposes only and do not modify the License.
+
+---
+
+### 7: Bug Reports and Frequently Asked Questions
+
+If you find a bug in the library or the documentation, we are interested in hearing about it.
+Please make a _small_ and _self-contained_ program which exposes the bug,
+and then send the program source and the bug description to the developers.
+
+The contact details are at:  
+https://pyarma.sourceforge.io/contact.html
+
+Further information about PyArmadillo is on the frequently asked questions page:  
+https://pyarma.sourceforge.io/faq.html
