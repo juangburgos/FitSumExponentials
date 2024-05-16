@@ -2,7 +2,7 @@
   "content": [
     {
       "content": null,
-      "created": "2024-03-20T21:21:28.566594Z",
+      "created": "2024-05-16T16:32:34.230790Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -16,7 +16,7 @@
     },
     {
       "content": null,
-      "created": "2024-03-20T21:21:28.566594Z",
+      "created": "2024-05-16T16:32:34.230790Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -30,7 +30,7 @@
     },
     {
       "content": null,
-      "created": "2024-03-20T21:21:28.558594Z",
+      "created": "2024-05-16T16:32:34.222790Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -44,7 +44,7 @@
     },
     {
       "content": null,
-      "created": "2024-03-20T21:21:28.566594Z",
+      "created": "2024-05-16T16:32:34.234790Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -58,7 +58,21 @@
     },
     {
       "content": null,
-      "created": "2024-03-20T21:21:28.562594Z",
+      "created": "2024-05-16T16:32:34.234790Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2024-05-16T16:28:00.826790Z",
+      "mimetype": null,
+      "name": "Better_Predictions_Than_Kalman.ipynb",
+      "path": "Better_Predictions_Than_Kalman.ipynb",
+      "size": 41382,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2024-05-16T16:32:34.230790Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -72,7 +86,7 @@
     },
     {
       "content": null,
-      "created": "2024-03-20T21:21:28.562594Z",
+      "created": "2024-05-16T16:32:34.226790Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -86,7 +100,7 @@
     },
     {
       "content": null,
-      "created": "2024-03-20T21:21:28.558594Z",
+      "created": "2024-05-16T16:32:34.226790Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
@@ -99,11 +113,11 @@
       "writable": true
     }
   ],
-  "created": "2024-03-20T21:21:28.566594Z",
+  "created": "2024-05-16T16:32:34.234790Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2024-03-20T21:21:28.566594Z",
+  "last_modified": "2024-05-16T16:32:34.234790Z",
   "mimetype": null,
   "name": "",
   "path": "",
